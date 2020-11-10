@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mapa="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              x:Class="PrivBus.Views.Detail"
-             Title="Prueba">
+             Title="MAPA">
     <ContentPage.Content>
-        <StackLayout Padding="5,5,5,5">
-            <Label x:Name="lati" />
-            <Label x:Name="lon" />
-            <Label x:Name="state" />
+        <StackLayout>
 
+            <mapa:Map x:Name="mapa" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
 
         </StackLayout>
     </ContentPage.Content>

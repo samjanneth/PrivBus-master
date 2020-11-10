@@ -11,17 +11,23 @@ namespace PrivBus.Clases
         public static bool isConnect = false;
 
 
-        //se obtiene el estafdo de la red
+        //se obtiene el estado de la red
         public void iHaveInternet()
         {
             NetworkAccess current = Connectivity.NetworkAccess;
             determineState(current);
 
             //detecta el cambio en la red
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            determineState(e.NetworkAccess);
 
         }
 
-        //determina el estado de la red y su métidi
+        //determina el estado de la red y su método
         public void determineState(NetworkAccess state)
         {
             if(state == NetworkAccess.Internet)

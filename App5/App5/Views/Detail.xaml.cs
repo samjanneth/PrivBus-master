@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using PrivBus.Clases;
+using Xamarin.Forms.GoogleMaps;
 
 
 namespace PrivBus.Views
@@ -22,12 +23,21 @@ namespace PrivBus.Views
         {
 
             InitializeComponent();
+            configMap();
             moveToActualPosition();
-            showStateNetwork();
-
-            
         }
 
+
+        //configuración del mapa 
+        void configMap()
+        {
+            mapa.UiSettings.CompassEnabled = true;
+            mapa.UiSettings.MyLocationButtonEnabled = true;
+            mapa.UiSettings.MapToolbarEnabled = true;
+            mapa.MyLocationEnabled = true;
+            mapa.FlowDirection = FlowDirection.LeftToRight;
+            mapa.MapType = MapType.Street;
+        }
 
         void moveToActualPosition()
         {
@@ -35,16 +45,13 @@ namespace PrivBus.Views
             {
 
                 await _Geolocation.getLocationGPS();
-                lati.Text = GeoLocation.lati.ToString();
-                lon.Text = GeoLocation.lon.ToString();
+                Position _position = new Position(GeoLocation.lati, GeoLocation.lon );
+                mapa.MoveToRegion(MapSpan.FromCenterAndRadius(_position, Distance.FromMeters(500)), true);
             });
                 
         }
 
-        void showStateNetwork()
-        {
-            state.Text = NetWorkState.isConnect.ToString();
-        }
+   
 
 
 
