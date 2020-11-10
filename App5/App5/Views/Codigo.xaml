@@ -2,5 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrivBus.Views.Codigo">
-    <Label Text="Tu código QR" VerticalOptions="Center" HorizontalOptions="Center" />
+   
+    <StackLayout>
+         <Label Text="Tu código QR" FontSize="70" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+        <Image Source="QR.png"
+        HeightRequest="350"
+               VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+    </StackLayout>
 </ContentPage>

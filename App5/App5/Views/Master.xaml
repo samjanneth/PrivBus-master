@@ -3,19 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Image="clr-namespace:ImageCircle.Forms.Plugin.Abstraction;assembly=ImageCircle.Forms.Plugin"
              x:Class="PrivBus.Views.Master"
-             Title="Botón de emergencia"
-             BackgroundColor="Navy"
+             Title="Menú"
+             BackgroundColor="RoyalBlue"
              Icon="men.jpg">
 
-    <StackLayout Padding="50">
+    <StackLayout Padding="30">
         
-        <Button x:Name="buttonA" Text=" Historial de viajes " />
-        <Button x:Name="buttonB" Text=" Código QR " />
-        <Button x:Name="buttonC" Text=" Emergencia " />
-        <Button x:Name="buttonD" Text=" Configuración " />
+        <Button x:Name="buttonA" Text=" Historial de viajes " BackgroundColor="White" />
+        <Button x:Name="buttonB" Text=" Código QR "  BackgroundColor="White" />
+        <Button x:Name="buttonC" Text=" Emergencia "  BackgroundColor="White" />
+        <Button x:Name="buttonD" Text=" Configuración "   BackgroundColor="White" />
 
-        
-        <ListView HeightRequest="70" x:Name="usersListView" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" >
+
+        <ListView HeightRequest="70" x:Name="usersListView" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"
+                  BackgroundColor="White" 
+    
+                  >
+                    
             <ListView.ItemTemplate>
                 <DataTemplate>
                     
