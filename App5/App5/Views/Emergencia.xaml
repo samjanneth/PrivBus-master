@@ -4,9 +4,15 @@
              x:Class="PrivBus.Views.Emergencia">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Aquí van los botones de emergencia"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Aquí van los botones de emergencia" />
+
+            <Button x:Name="Emergencia1"
+                    Text="Botón de emergencia"
+                    Clicked="Emergencia1_Clicked"/>
+            <Button x:Name="Cancela1"
+                    Text="Cancelar solicitud de emergencia"
+                    Clicked="Cancela1_Clicked"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
