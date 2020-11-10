@@ -4,13 +4,25 @@
              x:Class="PrivBus.Views.Emergencia">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Aquí van los botones de emergencia" />
+            <Label Text="EMERGENCIA"  VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" FontSize="Title"/>
 
-            <Button x:Name="Emergencia1"
-                    Text="Botón de emergencia"
+            <Button  x:Name="Emergencia1"
+                    Text="Botón de emergencia" BindingContext="20"
+                     WidthRequest="120"
+                     HeightRequest="120"
+                     CornerRadius="100"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                     BackgroundColor="OrangeRed"
                     Clicked="Emergencia1_Clicked"/>
             <Button x:Name="Cancela1"
-                    Text="Cancelar solicitud de emergencia"
+                    Text="Cancelar solicitud de emergencia" BindingContext=" 20"
+                      WidthRequest="120"
+                     HeightRequest="120"
+                     CornerRadius="100"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="Orange"
                     Clicked="Cancela1_Clicked"/>
 
         </StackLayout>
