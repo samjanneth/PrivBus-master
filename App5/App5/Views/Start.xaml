@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    NavigationPage.HasNavigationBar="False"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.Views.Start">
+    
+    <!--En esta sección se declaran los estilos de los botones-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#000000" ></Setter>
+                <Setter Property="TextColor" Value="#ffffff" ></Setter>
+                <Setter Property="CornerRadius" Value="20" ></Setter>
+                <Setter Property="Padding" Value="70,5" ></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        
+        <Grid>
+            <Image Source="fondo.jpg" Aspect="AspectFill" />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" ></RowDefinition>
+                    <RowDefinition Height="*" ></RowDefinition>
+                    <RowDefinition Height="Auto" ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="Priv2" WidthRequest="100" HeightRequest="100" Margin="0,100,0,0" />
+
+
+            </Grid>
+            <StackLayout
+                        Orientation="Vertical"
+                        Padding="10"
+                        VerticalOptions="End"
+                        HorizontalOptions="Center"
+                        Margin="0,0,0,30"
+                    >
+                <Button 
+                    Clicked="Handle_Clicked"
+                    Text="Iniciar Sesión"
+                        ></Button>
+                <Button
+                    Clicked="Button_Clicked"
+                    Text="Regístrate"
+                        ></Button>
+
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+
+
+
+</ContentPage>

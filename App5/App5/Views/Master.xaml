@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Image="clr-namespace:ImageCircle.Forms.Plugin.Abstraction;assembly=ImageCircle.Forms.Plugin"
+             x:Class="PrivBus.Views.Master"
+             Title="Botón de emergencia"
+             BackgroundColor="Navy"
+             Icon="men.jpg">
+
+    <StackLayout Padding="50">
+        
+        <Button x:Name="buttonA" Text=" Historial de viajes " />
+        <Button x:Name="buttonB" Text=" Código QR " />
+        <Button x:Name="buttonC" Text=" Emergencia " />
+        <Button x:Name="buttonD" Text=" Configuración " />
+
+        
+        <ListView HeightRequest="70" x:Name="usersListView" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    
+
+                    <TextCell Text="{Binding UserName}"></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+    
+    
+    
+    
+</ContentPage>

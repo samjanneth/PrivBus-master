@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.NewFolder3.Register">
+    <!--En esta sección se declaran los estilos de los botones-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#fff" ></Setter>
+                <Setter Property="TextColor" Value="#fff" ></Setter>
+                <Setter Property="WidthRequest" Value="250" ></Setter>
+                <Setter Property="BackgroundColor" Value="#555" ></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" ></Setter>
+                <Setter Property="FontSize" Value="13" ></Setter>
+                <Setter Property="FontAttributes" Value="Bold" ></Setter>
+                <Setter Property="TextColor" Value="White" ></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid>
+            <Image Source="fondo.jpg" Aspect="AspectFill" />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" ></RowDefinition>
+                    <RowDefinition Height="*" ></RowDefinition>
+                    <RowDefinition Height="Auto" ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="Priv2" WidthRequest="100" HeightRequest="100" Margin="0,0,0,0" />
+
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Margin="0,100,0,0">
+                    <Button
+                        Clicked="Button_Clicked"
+                        Text="Inicio de Sesión"/>
+                    <Button 
+                        Text="Regístrate"
+                        IsEnabled="False"/>
+                </StackLayout>
+
+                <StackLayout
+                    Orientation="Horizontal"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Margin="0,200,0,0">
+                    <Label TextColor="#fff">Eres chofer?</Label>
+                    <CheckBox IsChecked="False"></CheckBox>
+                </StackLayout>
+                
+                <StackLayout
+                    Grid.Row="1" 
+                    Padding="0,20,0,50" 
+                    HorizontalOptions="EndAndExpand"
+                >
+                    <Entry
+                        x:Name="nameEntry"
+                        Placeholder="Nombre Completo" />
+                    <Entry
+                        x:Name="emailEntry"
+                        Placeholder="Correo Electrónico" />
+                    <Entry
+                        x:Name="userNameEntry"
+                        Placeholder="Usuario" />
+                    <Entry
+                        x:Name="passwordEntry"
+                        Placeholder="Contraseña"  IsPassword="True"/>
+                    <Entry
+                        x:Name="empNumberEntry"
+                        Placeholder="Numero de Empleado" />
+                    <DatePicker
+                        x:Name="DOBEntry"
+                        TextColor="#fff"
+                        WidthRequest="250"
+                        BackgroundColor="#555"
+                        />
+                    <Label
+                        TextColor="#fff">DD/MM/YYYY</Label>
+                </StackLayout>
+
+            </Grid>
+            <StackLayout
+                        Orientation="Vertical"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Margin="0, 0, 0, 10"
+                    >
+                <Button 
+                    x:Name="registerButton"
+                    Clicked="OnAdd"
+                    Text="Registrar" 
+                    BackgroundColor="Transparent"
+                    TextColor="White" 
+                    BorderColor="Gray"/>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App5.NewFolder3.Login">
+    <!--En esta sección se declaran los estilos de los botones-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#fff" ></Setter>
+                <Setter Property="TextColor" Value="#fff" ></Setter>
+                <Setter Property="WidthRequest" Value="250" ></Setter>
+                <Setter Property="BackgroundColor" Value="#555" ></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" ></Setter>
+                <Setter Property="FontSize" Value="13" ></Setter>
+                <Setter Property="FontAttributes" Value="Bold" ></Setter>
+                <Setter Property="TextColor" Value="White" ></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid>
+            <Image Source="fondo.jpg" Aspect="AspectFill" />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" ></RowDefinition>
+                    <RowDefinition Height="*" ></RowDefinition>
+                    <RowDefinition Height="Auto" ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Source="Priv2" WidthRequest="100" HeightRequest="100" Margin="0,100,0,0" />
+                
+                
+                <StackLayout
+                    Orientation="Horizontal"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Margin="0,200,0,0">
+                    <Button 
+                        Text="Inicio de Sesión" 
+                        IsEnabled="False"/>
+                    <Button 
+                        Clicked="Button_Clicked"
+                        Text="Regístrate"/>
+                </StackLayout>
+                
+                <StackLayout
+                    Grid.Row="1" 
+                    Padding="0,50,0,50" 
+                    HorizontalOptions="EndAndExpand"
+                >
+                    <Entry
+                        x:Name="userEntry"
+                        Placeholder="Usuario" />
+                    <Entry
+                        x:Name="passwordEntry"
+                        Placeholder="Contraseña"  IsPassword="True"/>
+
+                </StackLayout>
+              
+            </Grid>
+            <StackLayout
+                        Orientation="Vertical"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Margin="0, 0, 0, 10"
+                    >
+                <Button 
+                    Clicked="loginTry"
+                    Text="Iniciar sesión" 
+                    BackgroundColor="Transparent" 
+                    TextColor="White" 
+                    BorderColor="Gray"/>
+                <Button 
+                    Text="¿Olvidaste tu contraseña?"
+                    BackgroundColor="Transparent" 
+                    TextColor="Cyan" FontSize="13"
+                    FontAttributes="Bold"/>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
