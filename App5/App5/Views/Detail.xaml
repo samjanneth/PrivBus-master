@@ -7,7 +7,7 @@
         <StackLayout Padding="5,5,5,5">
             <Label x:Name="lati" />
             <Label x:Name="lon" />
-
+            <Label x:Name="state" />
 
 
         </StackLayout>

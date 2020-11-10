@@ -28,6 +28,7 @@ namespace App5
 
             MainPage = new NavigationPage(new Start());
             new GeoLocation().getLocationGPS();
+            new NetWorkState().iHaveInternet();
             
         }
 

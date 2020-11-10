@@ -23,6 +23,8 @@ namespace PrivBus.Views
 
             InitializeComponent();
             moveToActualPosition();
+            showStateNetwork();
+
             
         }
 
@@ -38,5 +40,13 @@ namespace PrivBus.Views
             });
                 
         }
+
+        void showStateNetwork()
+        {
+            state.Text = NetWorkState.isConnect.ToString();
+        }
+
+
+
     }
 }
