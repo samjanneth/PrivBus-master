@@ -4,9 +4,10 @@
              x:Class="PrivBus.Views.Codigo">
    
     <StackLayout>
-         <Label Text="Tu código QR" FontSize="70" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+         <Label Text="Tu código QR" FontSize="30" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+        <Button Text="Escanear QR" Clicked="Button_Clicked" />
         <Image Source="QR.png"
-        HeightRequest="350"
+        HeightRequest="250"
                VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
 </ContentPage>
