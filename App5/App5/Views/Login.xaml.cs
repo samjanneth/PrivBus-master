@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static PrivBus.Clases.Usuario;
+using Firebase.Auth;
+using Newtonsoft.Json;
+using Xamarin.Essentials;
 
 namespace App5.NewFolder3
 {
@@ -43,13 +46,13 @@ namespace App5.NewFolder3
 
         protected override async void OnAppearing()
         {
-            await _connection.CreateTableAsync<User>();
+            await _connection.CreateTableAsync<Usuario.User>();
             base.OnAppearing();
         }
 
          async private void loginTry(object sender, EventArgs e)
         {
-            var myquery = await _connection.Table<User>().Where(u => u.UserName.Equals(userEntry.Text) && u.Password.Equals(passwordEntry.Text)).FirstOrDefaultAsync();
+            var myquery = await _connection.Table<Usuario.User>().Where(u => u.UserName.Equals(userEntry.Text) && u.Password.Equals(passwordEntry.Text)).FirstOrDefaultAsync();
 
             if (myquery!=null)
             {
@@ -57,6 +60,23 @@ namespace App5.NewFolder3
             }
             else
             {
+                string WebAPIkey = "AIzaSyAjZ38ZK8lkN2xQSClolREWMPzPTvJqyro";
+
+
+                var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+                try
+                {
+                    var auth = await authProvider.SignInWithEmailAndPasswordAsync(userEntry.Text.ToString(), passwordEntry.Text.ToString());
+                    var content = await auth.GetFreshAuthAsync();
+                    var serializedcontnet = JsonConvert.SerializeObject(content);
+
+                    Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
+                }
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Alert", "Invalid useremail or password", "OK");
+                }
+
                 Device.BeginInvokeOnMainThread(async() =>
                     {
 

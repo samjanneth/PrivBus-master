@@ -12,6 +12,7 @@ using HelloWorld;
 using SQLite;
 using static PrivBus.Clases.Usuario;
 using PrivBus.Clases;
+using Firebase.Auth;
 
 namespace App5.NewFolder3
 {
@@ -30,13 +31,13 @@ namespace App5.NewFolder3
 
         protected override async void OnAppearing()
         {
-          await _connection.CreateTableAsync<User>();
+          await _connection.CreateTableAsync<Usuario.User>();
             base.OnAppearing();
         }
 
         async void OnAdd(object  sender, System.EventArgs e)
         {
-            User user = new User()
+            Usuario.User user = new Usuario.User()
             {
                 Names = nameEntry.Text,
                 Email = emailEntry.Text,
@@ -47,8 +48,22 @@ namespace App5.NewFolder3
                 DOC = DateTime.Now
             };
 
-          
             await _connection.InsertAsync(user);
+
+            string WebAPIkey = "AIzaSyAjZ38ZK8lkN2xQSClolREWMPzPTvJqyro";
+
+            try
+            {
+                var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
+                var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(emailEntry.Text.ToString(), passwordEntry.Text.ToString());
+                string gettoken = auth.FirebaseToken;
+
+                await Application.Current.MainPage.Navigation.PushAsync(new Login());
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+            }
 
             Device.BeginInvokeOnMainThread(async () =>
             {
