@@ -19,7 +19,7 @@ namespace PrivBus.Views
         private SQLiteAsyncConnection _connection;
        
 
-        public Master()
+        public Master(string userName, string email, string empnumber)
         {
             InitializeComponent();
             _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
@@ -31,7 +31,7 @@ namespace PrivBus.Views
 
             buttonB.Clicked += async (sender, e) =>
             {
-                await App.NavigateMasterDetail(new Codigo());
+                await App.NavigateMasterDetail(new Codigo(userName, email, empnumber));
             };
 
             buttonC.Clicked += async (sender, e) =>

@@ -56,7 +56,7 @@ namespace App5.NewFolder3
 
             if (myquery!=null)
             {
-                App.Current.MainPage = new NavigationPage(new HomePage());
+                App.Current.MainPage = new NavigationPage(new HomePage(myquery.UserName, myquery.Email, myquery.EmpNumber));
             }
             else
             {
