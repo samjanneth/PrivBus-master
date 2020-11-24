@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace App5.Droid
 {
-    [Activity(Label = "SplashActivity",
+    [Activity(Label = "PrivBus",
                 Theme = "@style/SplashTheme",
                 MainLauncher = true,
                 NoHistory = true,
