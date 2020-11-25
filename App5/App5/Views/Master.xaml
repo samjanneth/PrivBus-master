@@ -4,11 +4,11 @@
              
              x:Class="PrivBus.Views.Master"
              Title="Menú"
-             BackgroundColor="RoyalBlue"
+             BackgroundColor="#199ed4 "
              Icon="men.jpg">
 
-    <StackLayout Padding="30">    
-        
+    <StackLayout Padding="20,20,0,20" Spacing="40" Margin="20">
+        <Image Source="Priv2.png" ></Image>
         <Button x:Name="buttonA" Text=" Historial de viajes " BackgroundColor="White" />
         <Button x:Name="buttonB" Text=" Código QR "  BackgroundColor="White" />
         <Button x:Name="buttonC" Text=" Emergencia "  BackgroundColor="White" />
@@ -20,12 +20,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     
-
                     <TextCell Text="{Binding UserName}"></TextCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        
     </StackLayout>
     
     
