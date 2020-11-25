@@ -36,6 +36,7 @@ namespace PrivBus.Views
         public object Toast { get; private set; }
         public object ToastLength { get; private set; }
 
+            }
 
         
 
@@ -55,7 +56,6 @@ namespace PrivBus.Views
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("PrivBusApp@gmail.com", "Seguridadapp4");// aqui debe ir nuestro correo Gmail y nuestra contraseña
                 SmtpServer.EnableSsl = true;
-               
                 SmtpServer.Send(mail);
                 DisplayAlert("CORREO", "SOLICITUD ENVIADA CON ÉXITO", "OK");
             }
