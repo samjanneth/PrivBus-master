@@ -18,10 +18,12 @@ namespace PrivBus.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Emergencia : ContentPage
     {
-        public Emergencia()
+        public readonly string user;
+        public Emergencia(string userName, string email, string empnumber)
         {
             InitializeComponent();
 
+            user = userName;
         }
 
       
@@ -68,7 +70,7 @@ namespace PrivBus.Views
                 mail.From = new MailAddress("PrivBusApp@gmail.com");//Este debe ser nuestro correo Gmail al que le dimos los permisos necesarios es decir el que envia los correos
                 mail.To.Add("samanthajanneth5@gmail.com");//este es el correo al que llegara el correo
                 mail.Subject = "EMERGENCIA";// El titulo del mensaje
-                mail.Body = "El usuario se encuentra en una situación de emergencia";//El mensaje que se almaceno en el estring
+                mail.Body = "El usuario "+user+" se encuentra en una situación de emergencia";//El mensaje que se almaceno en el estring
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("PrivBusApp@gmail.com", "Seguridadapp4");// aqui debe ir nuestro correo Gmail y nuestra contraseña
                 SmtpServer.EnableSsl = true;

@@ -36,7 +36,8 @@ namespace PrivBus.Views
 
             buttonC.Clicked += async (sender, e) =>
             {
-                await App.NavigateMasterDetail(new Emergencia());
+                //se envian argumentos a xaml de Emergencia
+                await App.NavigateMasterDetail(new Emergencia(userName, email, empnumber));
             };
 
             buttonD.Clicked += async (sender, e) =>
