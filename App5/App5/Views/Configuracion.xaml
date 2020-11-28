@@ -4,9 +4,13 @@
              x:Class="PrivBus.Views.Configuracion">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Aquí va la configuración"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <Button Padding="20,20,20,20"
+                    Clicked="Log_Clicked"
+                    Text="Cerrar Sesión" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="20"
+                        ></Button>
+            <Image Source="log.gif" HeightRequest="200"  WidthRequest="200" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand"
+                  />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

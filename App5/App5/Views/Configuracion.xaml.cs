@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App5.NewFolder3;
+using App5.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,11 @@ namespace PrivBus.Views
         public Configuracion()
         {
             InitializeComponent();
+            
+        }
+        void Log_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new Start());
         }
     }
 }
