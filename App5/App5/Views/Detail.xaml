@@ -5,10 +5,20 @@
              x:Class="PrivBus.Views.Detail"
              Title="MAPA">
     <ContentPage.Content>
-        <StackLayout>
 
+        <Grid>
             <mapa:Map x:Name="mapa" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
 
-        </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
+                <Button 
+                    Text="BuscaRuta" 
+                    x:Name="Ruta" 
+                    BackgroundColor="Black" 
+                    TextColor="White" Padding="10" 
+                    Clicked="Ruta_Clicked"  
+                    VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
