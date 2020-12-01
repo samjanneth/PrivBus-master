@@ -1,12 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PrivBus.Views.Cam">
+             x:Class="PrivBus.Views.Cam"
+             BackgroundImageSource="fondo.jpeg" >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Horizontal" Padding="20,10,15,10">
+         
+                
+             
+           
+            <Button Text="Escanear QR" Clicked="Button_Clicked" VerticalOptions="Center"
+                    HorizontalOptions="FillAndExpand" FontSize="25" BackgroundColor="White" TextColor="Purple"/>
+            
+     
+          
+            
         </StackLayout>
+
+
+       
+
+
     </ContentPage.Content>
 </ContentPage>

@@ -5,6 +5,17 @@
     <ContentPage.Content>
         <StackLayout>
 
+
+            <ListView HeightRequest="70" x:Name="usersListView" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"
+                  BackgroundColor="White" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <TextCell Text="{Binding UserName}"></TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
             <Button Padding="20,20,20,20"
                     Clicked="Log_Clicked"
                     Text="Cerrar Sesión" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="20"

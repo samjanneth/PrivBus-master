@@ -7,7 +7,7 @@
    
     <StackLayout>
          <Label Text="Tu código QR" FontSize="30" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
-        <Button Text="Escanear QR" Clicked="Button_Clicked" />
+        
 
         <zxing:ZXingBarcodeImageView
             x:Name="CodeQR"
