@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "921279001247",
+    "firebase_url": "https://privbus-1736c.firebaseio.com",
+    "project_id": "privbus-1736c",
+    "storage_bucket": "privbus-1736c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921279001247:android:d5a6bfa705bcb81b41a8aa",
+        "android_client_info": {
+          "package_name": "com.ufinix.xamarinfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921279001247-hchv22b2dqqo1ln3092u18l4mf2gj58d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8qLdTZYAc4VMm3FURcZebRlT2TVOV75E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921279001247-hchv22b2dqqo1ln3092u18l4mf2gj58d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

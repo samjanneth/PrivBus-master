@@ -54,8 +54,8 @@
                     HorizontalOptions="EndAndExpand"
                 >
                     <Entry
-                        x:Name="userEntry"
-                        Placeholder="Usuario" />
+                        x:Name="emailEntry"
+                        Placeholder="E-mail" />
                     <Entry
                         x:Name="passwordEntry"
                         Placeholder="Contraseña"  IsPassword="True"/>

@@ -1,6 +1,5 @@
 ﻿using App5;
 using System;
-using HelloWorld;
 using SQLite;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +15,11 @@ namespace PrivBus.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Master : ContentPage
     {
-        private SQLiteAsyncConnection _connection;
        
 
         public Master(string userName, string email, string empnumber)
         {
             InitializeComponent();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
             buttonA.Clicked += async (sender, e) =>
             {
@@ -48,11 +45,5 @@ namespace PrivBus.Views
 
         }
 
-        protected override async void OnAppearing()
-        {
-            var users = await _connection.Table<User>().ToListAsync();
-            usersListView.ItemsSource = users;
-            base.OnAppearing();
-        }
     }
 }

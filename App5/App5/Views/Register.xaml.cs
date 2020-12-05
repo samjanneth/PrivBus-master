@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using App5.Views;
-using HelloWorld;
 using SQLite;
 using static PrivBus.Clases.Usuario;
 using PrivBus.Clases;
@@ -20,19 +19,11 @@ namespace App5.NewFolder3
 
     public partial class Register : ContentPage
     {
-        private SQLiteAsyncConnection _connection;
         public Register()
         {
             InitializeComponent();
 
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
            
-        }
-
-        protected override async void OnAppearing()
-        {
-          await _connection.CreateTableAsync<Usuario.User>();
-            base.OnAppearing();
         }
 
         async void OnAdd(object  sender, System.EventArgs e)
@@ -47,8 +38,6 @@ namespace App5.NewFolder3
                 DOB = DOBEntry.Date,
                 DOC = DateTime.Now
             };
-
-            await _connection.InsertAsync(user);
 
             string WebAPIkey = "AIzaSyAjZ38ZK8lkN2xQSClolREWMPzPTvJqyro";
 

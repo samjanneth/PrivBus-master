@@ -1,6 +1,5 @@
 ﻿using App5;
 using App5.NewFolder3;
-using HelloWorld;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -17,14 +16,12 @@ namespace PrivBus.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : MasterDetailPage
     {
-        private SQLiteAsyncConnection _connection;
        
 
     
         public HomePage(string userName, string email, string empnumber)
         {
             InitializeComponent();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
             this.Master = new Master(userName, email, empnumber);
             this.Detail = new NavigationPage(new Detail());

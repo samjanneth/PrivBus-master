@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Persistence\ISQLiteDb.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="MapResources\Ruta.json" />
   </ItemGroup>
 
