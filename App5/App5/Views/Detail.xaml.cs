@@ -13,6 +13,7 @@ using System.Reflection;
 using FireSharp.Interfaces;
 using FireSharp.Config;
 using FireSharp.Response;
+using Plugin.Geolocator;
 
 namespace PrivBus.Views
 {
@@ -69,8 +70,15 @@ namespace PrivBus.Views
                 
         }
 
-        void Ruta_Clicked(System.Object sender, System.EventArgs e)
+       private async void Ruta_Clicked(System.Object sender, System.EventArgs e)
         {
+            firebase();
+            FirebaseResponse response = await client.GetAsync("Ruta1/");
+            GeoLocation location = response.ResultAs<GeoLocation>();
+
+
+            string[] jsonloc = response.Body.Split('#');
+
             var assembly = typeof(Detail).GetTypeInfo().Assembly;
             var stream = assembly.GetManifestResourceStream($"PrivBus.MapResources.Ruta.json");
             string Ruta;
@@ -127,17 +135,51 @@ namespace PrivBus.Views
             //});
         }
 
-        //private async void share_ub(object sender, EventArgs e)
-        //{
-        //    firebase();
+        private async void ShareUb(object sender, EventArgs e)
+        {
+            if (CrossGeolocator.Current.IsListening)
+             return;
+            await CrossGeolocator.Current.StartListeningAsync(TimeSpan.FromSeconds(10), 10, true);
+            CrossGeolocator.Current.PositionChanged += PositionChanged;
+            
+        }
 
-        //    Device.BeginInvokeOnMainThread(async () =>
-        //    {
-        //        Position _position = new Position(GeoLocation.lati, GeoLocation.lon);
-        //        MapSpan mapSpan = MapSpan.FromCenterAndRadius(_position, Distance.FromKilometers(0.444));
+        private void PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
+        {
+            string data = "#"+e.Position.Latitude.ToString() +"#"+ e.Position.Longitude.ToString()+"#"+System.Environment.NewLine+
+                createFormatData(e.Position.Timestamp.UtcDateTime)+"#";
 
-        //    });
-        //}
+           var lat = e.Position.Latitude;
+           var lng = e.Position.Longitude;
+
+            firebase();
+
+            client = new FireSharp.FirebaseClient(config);
+            var ubicacion = data;
+            PushResponse response = client.Push("Ruta1/", data);
+            //usuario.Id = response.Result.name;
+            //SetResponse setresp = client.Set("Usuarios/" + usuario.Id, usuario);
+
+        }
+
+        public double createFormatData(DateTime date)
+        {
+            return date.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+        }
+
+        private async void StopUb(object sender, EventArgs e)
+        {
+            if (!CrossGeolocator.Current.IsListening)
+                return;
+            await CrossGeolocator.Current.StopListeningAsync();
+            CrossGeolocator.Current.PositionChanged -= PositionChanged;
+
+            firebase();
+
+            FirebaseResponse res = await client.DeleteAsync("Ruta1/");
+
+
+        }
 
         //private void mapa_PropertyChanged(object sender, PropertyChangedEventArgs e)
         //{

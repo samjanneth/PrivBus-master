@@ -7,7 +7,11 @@
     <ContentPage.Content>
 
         <Grid>
-            <mapa:Map x:Name="mapa" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+            <mapa:Map x:Name="mapa"
+                      WidthRequest="800"
+                      HeightRequest="600"
+                      VerticalOptions="FillAndExpand" 
+                      HorizontalOptions="FillAndExpand" />
 
             <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
                 <Button 
@@ -17,13 +21,25 @@
                     TextColor="White" Padding="10" 
                     Clicked="Ruta_Clicked"  
                     VerticalOptions="EndAndExpand"/>
-                <!--<Button 
+                <Grid VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand">
+                    <Button 
                     Text="Comparte ubicación" 
                     x:Name="ubicacion" 
                     BackgroundColor="Black" 
                     TextColor="White" Padding="10" 
                     HorizontalOptions="Start"
-                    />-->
+                    Clicked="ShareUb"
+                    />
+                    <Button 
+                    Text="No compartir ubicación" 
+                    x:Name="noubicacion" 
+                    BackgroundColor="Black" 
+                    TextColor="White" Padding="10" 
+                    HorizontalOptions="End"
+                    Clicked="StopUb"
+                    />
+                </Grid>
+                
             </StackLayout>
 
         </Grid>
