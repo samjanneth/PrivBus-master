@@ -11,12 +11,19 @@
 
             <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
                 <Button 
-                    Text="BuscaRuta" 
+                    Text="Busca Ruta" 
                     x:Name="Ruta" 
                     BackgroundColor="Black" 
                     TextColor="White" Padding="10" 
                     Clicked="Ruta_Clicked"  
                     VerticalOptions="EndAndExpand"/>
+                <!--<Button 
+                    Text="Comparte ubicación" 
+                    x:Name="ubicacion" 
+                    BackgroundColor="Black" 
+                    TextColor="White" Padding="10" 
+                    HorizontalOptions="Start"
+                    />-->
             </StackLayout>
 
         </Grid>

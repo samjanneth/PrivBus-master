@@ -11,7 +11,7 @@ namespace PrivBus.Clases
         public class User
         {
             [PrimaryKey, AutoIncrement]
-            public int Id { get; set; }
+            public string Id { get; set; }
             [MaxLength(150), NotNull]
             public String Names { get; set; }
             [MaxLength(100), NotNull]

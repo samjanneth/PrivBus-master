@@ -12,6 +12,9 @@ using SQLite;
 using static PrivBus.Clases.Usuario;
 using PrivBus.Clases;
 using Firebase.Auth;
+using FireSharp.Interfaces;
+using Firesharp = FireSharp.Config;
+using FireSharp.Response;
 
 namespace App5.NewFolder3
 {
@@ -19,15 +22,40 @@ namespace App5.NewFolder3
 
     public partial class Register : ContentPage
     {
+
+        readonly IFirebaseConfig config = new Firesharp.FirebaseConfig
+        {
+            AuthSecret = "ROzTU6nnUaU32kvGUkf4HMSYxx3FT8TSh466XVyf",
+            BasePath = "https://privbus-1736c.firebaseio.com/"
+        };
+
+        IFirebaseClient client;
+        private void firebase()
+        {
+            client = new FireSharp.FirebaseClient(config);
+            //FirebaseResponse response = await client.GetAsync("Usuarios", FireSharp.QueryBuilder.New().OrderBy("Email").EndAt(email1).LimitToLast(1));
+            //Usuario user = response.ResultAs<Usuario>();
+        }
         public Register()
         {
             InitializeComponent();
 
+            
            
         }
 
         async void OnAdd(object  sender, System.EventArgs e)
         {
+            
+            //var authdatabase = "ROzTU6nnUaU32kvGUkf4HMSYxx3FT8TSh466XVyf";
+            //var firebaseClient = new FirebaseClient(
+            //    "https://privbus-1736c.firebaseio.com/",
+            //    new FirebaseOptions
+            //    {
+            //        AuthTokenAsyncFactory = () => Task.FromResult(authdatabase)
+            //    });
+
+
             Usuario.User user = new Usuario.User()
             {
                 Names = nameEntry.Text,
@@ -46,6 +74,17 @@ namespace App5.NewFolder3
                 var authProvider = new FirebaseAuthProvider(new FirebaseConfig(WebAPIkey));
                 var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(emailEntry.Text.ToString(), passwordEntry.Text.ToString());
                 string gettoken = auth.FirebaseToken;
+
+                //var firebase = new FirebaseClient("https://privbus-1736c.firebaseio.com/");
+                //var Usuario = await firebaseClient
+                //    .Child("Usuarios")
+                //    .PostAsync(user);
+
+                client = new FireSharp.FirebaseClient(config);
+                var usuario = user;
+                PushResponse response = client.Push("Usuarios/", usuario);
+                usuario.Id = response.Result.name;
+                SetResponse setresp = client.Set("Usuarios/"+usuario.Id, usuario);
 
                 await Application.Current.MainPage.Navigation.PushAsync(new Login());
             }

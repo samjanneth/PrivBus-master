@@ -28,11 +28,11 @@ namespace PrivBus.Views
             App.MasterDetail = this;
 
         }
-    
+
 
         protected override bool OnBackButtonPressed()
         {
-            Navigation.PushModalAsync(new Login());
+            Navigation.PushModalAsync(new MasterDetailPage());
             return true;
         }
     }

@@ -10,12 +10,28 @@ using PrivBus.Clases;
 using Xamarin.Forms.GoogleMaps;
 using Newtonsoft.Json;
 using System.Reflection;
+using FireSharp.Interfaces;
+using FireSharp.Config;
+using FireSharp.Response;
 
 namespace PrivBus.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Detail : ContentPage
     {
+        readonly IFirebaseConfig config = new FirebaseConfig
+        {
+            AuthSecret = "ROzTU6nnUaU32kvGUkf4HMSYxx3FT8TSh466XVyf",
+            BasePath = "https://privbus-1736c.firebaseio.com/"
+        };
+        IFirebaseClient client;
+
+        private void firebase()
+        {
+            client = new FireSharp.FirebaseClient(config);
+            //FirebaseResponse response = await client.GetAsync("Usuarios", FireSharp.QueryBuilder.New().OrderBy("Email").EndAt(email1).LimitToLast(1));
+            //Usuario user = response.ResultAs<Usuario>();
+        }
 
         public GeoLocation _Geolocation = new GeoLocation();
 
@@ -48,6 +64,7 @@ namespace PrivBus.Views
                 await _Geolocation.getLocationGPS();
                 Position _position = new Position(GeoLocation.lati, GeoLocation.lon );
                 mapa.MoveToRegion(MapSpan.FromCenterAndRadius(_position, Distance.FromMeters(500)), true);
+                mapa.Polylines.Clear();
             });
                 
         }
@@ -70,7 +87,7 @@ namespace PrivBus.Views
 
             var polyline = new Xamarin.Forms.GoogleMaps.Polyline();
             polyline.StrokeColor = Color.Red;
-            polyline.StrokeWidth = 4;
+            polyline.StrokeWidth = 5;
 
             foreach (var p in myJson)
             {
@@ -109,6 +126,30 @@ namespace PrivBus.Views
             //    }
             //});
         }
+
+        //private async void share_ub(object sender, EventArgs e)
+        //{
+        //    firebase();
+
+        //    Device.BeginInvokeOnMainThread(async () =>
+        //    {
+        //        Position _position = new Position(GeoLocation.lati, GeoLocation.lon);
+        //        MapSpan mapSpan = MapSpan.FromCenterAndRadius(_position, Distance.FromKilometers(0.444));
+
+        //    });
+        //}
+
+        //private void mapa_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        //{
+        //    firebase();
+        //    Console.WriteLine(e);
+        //    Device.BeginInvokeOnMainThread(async () =>
+        //    {
+        //        Position _position = new Position(GeoLocation.lati, GeoLocation.lon);
+        //        MapSpan mapSpan = MapSpan.FromCenterAndRadius(_position, Distance.FromKilometers(0.444));
+
+        //    });
+        //}
 
         //async void UpdatePostions(Xamarin.Forms.GoogleMaps.Position position)
         //{
