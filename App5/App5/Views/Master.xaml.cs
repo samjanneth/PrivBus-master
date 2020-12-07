@@ -42,6 +42,10 @@ namespace PrivBus.Views
                 await App.NavigateMasterDetail(new Configuracion());
             };
 
+            buttonE.Clicked += async (sender, e) =>
+            {
+                await App.NavigateMasterDetail(new Cam());
+            };
 
         }
 

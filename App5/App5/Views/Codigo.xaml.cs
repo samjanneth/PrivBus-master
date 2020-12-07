@@ -76,6 +76,11 @@ namespace PrivBus.Views
 
         }
 
+        internal static void Hide()
+        {
+            throw new NotImplementedException();
+        }
+
         //private async void New_QR(object sender, EventArgs e)
         //{
         //    InitializeComponent();
@@ -86,46 +91,46 @@ namespace PrivBus.Views
 
 
 
-            //Console.WriteLine(response.Body);
-            //JsonConvert.DeserializeObject(response.Body.ToString());
+        //Console.WriteLine(response.Body);
+        //JsonConvert.DeserializeObject(response.Body.ToString());
 
 
-            // var authdatabase = "ROzTU6nnUaU32kvGUkf4HMSYxx3FT8TSh466XVyf";
-            // var firebaseClient = new FirebaseClient(
-            //"https://privbus-1736c.firebaseio.com/",
-            //new FirebaseOptions
-            //{
-            //    AuthTokenAsyncFactory = () => Task.FromResult(authdatabase)
-            //});
+        // var authdatabase = "ROzTU6nnUaU32kvGUkf4HMSYxx3FT8TSh466XVyf";
+        // var firebaseClient = new FirebaseClient(
+        //"https://privbus-1736c.firebaseio.com/",
+        //new FirebaseOptions
+        //{
+        //    AuthTokenAsyncFactory = () => Task.FromResult(authdatabase)
+        //});
 
 
-            // var Users = await firebaseClient
-            //     .Child("Usuarios/")
-            //    .OrderBy("Email")
-            //    .EqualTo(email1)
-            //    .OnceAsync<Usuario>();
+        // var Users = await firebaseClient
+        //     .Child("Usuarios/")
+        //    .OrderBy("Email")
+        //    .EqualTo(email1)
+        //    .OnceAsync<Usuario>();
 
 
-            // foreach (var User in Users)
-            // {
-            //     JsonConvert.DeserializeObject<Usuario>(User.Object);
-            //     JsonConvert.DeserializeObject<Usuario>(User.Key.ToString());
-            //     Console.WriteLine(User.Object);
-            //     Console.WriteLine(User.Key);
+        // foreach (var User in Users)
+        // {
+        //     JsonConvert.DeserializeObject<Usuario>(User.Object);
+        //     JsonConvert.DeserializeObject<Usuario>(User.Key.ToString());
+        //     Console.WriteLine(User.Object);
+        //     Console.WriteLine(User.Key);
 
 
 
-            // }
+        // }
 
-            // Usuario Users = JsonConvert.DeserializeObject<Usuario>(Users));
-            //JsonConvert.DeserializeObject<Usuario>(Users.ToString());
-            //Console.WriteLine();
+        // Usuario Users = JsonConvert.DeserializeObject<Usuario>(Users));
+        //JsonConvert.DeserializeObject<Usuario>(Users.ToString());
+        //Console.WriteLine();
 
-            //foreach(var User in Users)
-            //{
-            //    Console.WriteLine($"{User.Key}");
-            //    Console.WriteLine($"{User.Object}");
-            //}
+        //foreach(var User in Users)
+        //{
+        //    Console.WriteLine($"{User.Key}");
+        //    Console.WriteLine($"{User.Object}");
+        //}
 
 
         //}

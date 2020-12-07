@@ -12,9 +12,9 @@
         <Button x:Name="buttonA" Text=" Historial de viajes " BackgroundColor="White" />
         <Button x:Name="buttonB" Text=" Código QR "  BackgroundColor="White" />
         <Button x:Name="buttonC" Text=" Emergencia "  BackgroundColor="White" />
-        <Button x:Name="buttonD" Text=" Configuración "   BackgroundColor="White" />
-
-        
+   
+        <Button x:Name="buttonE" Text=" Lector de QR "   BackgroundColor="White" />
+<Button x:Name="buttonD" Text=" Configuración "   BackgroundColor="White" />
         <ListView HeightRequest="70" x:Name="usersListView" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"
                   BackgroundColor="White" >
             <ListView.ItemTemplate>

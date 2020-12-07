@@ -40,6 +40,14 @@ namespace PrivBus.Views
 
         }
 
+        internal void Show()
+        {
+            throw new NotImplementedException();
+        }
 
+        internal void Hide()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
